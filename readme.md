@@ -31,8 +31,20 @@ npx hardhat
 - @openzeppelin/contracts
 
 # hardhatコマンド
-コンパイル
+## コンパイル
 ビルド後は、`artifacts`フォルダに吐き出される
 ```
 npx hardhat compile
+```
+
+## テスト
+全件
+```
+npx hardhat test
+```
+
+特定のファイルを指定する場合は`npx hardhat test {{ filePath }}`で実行できる
+例
+```
+npx hardhat test test/MemberNFT.js
 ```
