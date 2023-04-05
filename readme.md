@@ -79,10 +79,41 @@ npx hardhat run scripts/deploy.js --network localhost
 ```
 npx hardhat console --network localhost
 ```
+## メインネット テストネット
+1. alchemyでAppを作成
+https://dashboard.alchemy.com/
+2. 作成したAppのAPI KEYをコピー
+3. .envを作成して ALCHEMYとプライベートキーをコピーする
+例
+.env
+```
+ALCHEMY_API_KEY="hogehoge"
+PRIVATE_KEY = "matamask key"
+```
+4. hardhat.config.js に設定を追加
+```
+module.exports = {
+  solidity: "0.8.9",
+  networks: {
+    goerli: {
+      url: `https://eth-goerli,g.alchemy.com/v2/${process.env.ALCHEMY_API_KEY}`,
+      accounts: [process.env.PRIVATE_KEY]
+    }
+  }
+};
+```
 
-## テストネット
+5. NFTの場合は
+NFT Storageにmatadataと画像をuploadeする
+https://nft.storage/
 
-## メインネット
+6. デプロイ処理を追加
+```
+npx hardhat console --network {{ networkName　}}
+```
+
+7. Ether Scan
+https://www.udemy.com/course/dappnft2/learn/lecture/33057468#overview
 
 # 学習に使ったコンテンツ
 https://www.udemy.com/course/dappnft2/
