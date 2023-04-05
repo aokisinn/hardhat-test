@@ -48,3 +48,6 @@ npx hardhat test
 ```
 npx hardhat test test/MemberNFT.js
 ```
+
+# 学習に使ったコンテンツ
+https://www.udemy.com/course/dappnft2/
